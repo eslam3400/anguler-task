@@ -8,7 +8,7 @@
     <p class="cell small-2 medium-1">operations</p>
   </div>
   <div class="content grid-x text-center" *ngFor="let item of ProductService.products">
-    <img class="cell small-2 medium-2">
+    <img class="cell small-2 medium-2" src="../../../assets/product.jpg">
     <p class="cell small-2 medium-3">{{item.name}}</p>
     <p class="cell small-2 medium-2">{{item.price}}</p>
     <p class="cell small-1 medium-2" *ngIf="item.quantity; else quantityElseBlock">{{item.quantity}}</p>
