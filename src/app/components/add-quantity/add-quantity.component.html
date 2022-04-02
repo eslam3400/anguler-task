@@ -1,0 +1,21 @@
+<form [formGroup]="addQuantity" (ngSubmit)="onSubmit()">
+  <h4>Add Product Quantity</h4>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x grid-padding-y">
+      <div class="medium-6 cell">
+        <label>Quantity
+          <input type="number" formControlName="quantity" required>
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Cost
+          <input type="number" step=".1" formControlName="cost" required>
+        </label>
+      </div>
+    </div>
+    <div dir="rtl">
+      <button type="submit" [disabled]="!addQuantity.valid">Submit</button>
+      <a [routerLink]="['/products']">Cancel</a>
+    </div>
+  </div>
+</form>

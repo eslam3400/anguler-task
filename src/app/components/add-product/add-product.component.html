@@ -1,0 +1,40 @@
+<form [formGroup]="addProduct" (ngSubmit)="onSubmit()">
+  <h4>Add New Product</h4>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <label>Name
+          <input type="text" formControlName="name" required>
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Price
+          <input type="number" step=".1" formControlName="price" required>
+        </label>
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell">
+        <label>Picture
+          <input type="file" formControlName="name">
+        </label>
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <label>Quantity
+          <input type="number" formControlName="quantity">
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Cost
+          <input type="number" step=".1" formControlName="cost">
+        </label>
+      </div>
+    </div>
+    <div dir="rtl">
+      <button type="submit" [disabled]="!addProduct.valid">Submit</button>
+      <a [routerLink]="['/products']">Cancel</a>
+    </div>
+  </div>
+</form>

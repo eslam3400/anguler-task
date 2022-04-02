@@ -1,0 +1,26 @@
+<section>
+  <div class="header grid-x text-center">
+    <p class="cell small-2 medium-2">Img</p>
+    <p class="cell small-2 medium-3">Name</p>
+    <p class="cell small-2 medium-2">Price</p>
+    <p class="cell small-1 medium-2">Amount</p>
+    <p class="cell small-2 medium-2">Cost</p>
+    <p class="cell small-2 medium-1">operations</p>
+  </div>
+  <div class="content grid-x text-center" *ngFor="let item of ProductService.products">
+    <img class="cell small-2 medium-2">
+    <p class="cell small-2 medium-3">{{item.name}}</p>
+    <p class="cell small-2 medium-2">{{item.price}}</p>
+    <p class="cell small-1 medium-2" *ngIf="item.quantity; else quantityElseBlock">{{item.quantity}}</p>
+    <ng-template #quantityElseBlock>
+      <p class="cell small-1 medium-2">-</p>
+    </ng-template>
+    <p class="cell small-2 medium-2" *ngIf="item.cost; else costElseBlock">{{item.cost}}</p>
+    <ng-template #costElseBlock>
+      <p class="cell small-2 medium-2">-</p>
+    </ng-template>
+    <p class="cell small-1 medium-1"><a [routerLink]="['/products/add-quantity',item.id]"><i
+          class="fa-solid fa-plus"></i></a>
+    </p>
+  </div>
+</section>
