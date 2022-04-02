@@ -18,15 +18,18 @@ export class ProductService {
   counter = 0;
 
   addProduct(product: Product) {
-    product.id = ++this.counter
+    product.id = ++this.counter;
+    product.currentAvgCost = 0;
     this.products.push(product);
   }
 
   addProductQuantity(quantity: number, cost: number, id: number) {
     this.products.forEach(product => {
       if (product.id == id) {
-        if (product.quantity == 0)
+        if (product.quantity == 0 || product.quantity == null) {
           product.currentAvgCost = ((product.currentAvgCost * product.quantity) + cost) / (product.quantity + quantity)
+          product.cost = cost
+        }
         else
           product.currentAvgCost = cost / quantity
         product.quantity += quantity
